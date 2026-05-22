@@ -14,7 +14,7 @@ def fetch_economic_data():
         return
     
     #Defining Filters
-    target_currencies = ['EUR', 'JPY', 'USD', 'JPY']
+    target_currencies = ['EUR', 'JPY', 'USD', 'GBP']
     target_impacts = ['High', 'Holiday']
     
     #Parsing the xml data
