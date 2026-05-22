@@ -19,5 +19,5 @@ jobs:
          run: pip install requests
        - name: Run script
          run:  |
-            Is -R
+            ls -R
             python -u main.py
