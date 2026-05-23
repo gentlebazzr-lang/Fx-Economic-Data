@@ -29,7 +29,7 @@ jobs:
             server_address: smtp.gmail.com
             server_port: 465
             username: derinneganuser@gmail.com
-            password: $((secrets.MAIL_PASSWORD))
+            password: ${{secrets.MAIL_PASSWORD}}
             subject: "Forex Factory's Filtered Data Updated"
             to: gentlebazzr@gmail.com
             from: "GitHub Scraper Automation"
