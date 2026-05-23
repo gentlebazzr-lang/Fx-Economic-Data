@@ -61,7 +61,7 @@ def fetch_economic_data():
                 
     output_payload = {
         "last_updated": datetime.utcnow().strftime("%Y-%m_%d %H: %M: %S UTC"),
-        "high_impact_timestamps": pine_stamps
+        "high_impact_timestamps": pine_timestamps
     }
     with open("news_data.json", "w") as json_file:
         json.dump(output_payload, json_file, indent=4)
