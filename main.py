@@ -38,12 +38,12 @@ def fetch_economic_data():
                 'time': time_str
             })
 
-    print("--- Forex FActory Filtered Data---")
+    print("--- Forex Factory Filtered Data---")
     if not filtered_events:
         print("No High Impact News or Holidays for the selected currencies for this week.")
     else:
         for item in filtered_events:
-            print(f"[{item['date']} {item['item']}] {item['currency']} ({item['impact']}): {item['title']}")
+            print(f"[{item['date']} {item['time']}] {item['currency']} ({item['impact']}): {item['title']}")
 
 if __name__ == "__main__":
     fetch_economic_data ()
