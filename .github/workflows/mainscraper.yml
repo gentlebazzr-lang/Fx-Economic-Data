@@ -5,6 +5,9 @@ on:
    - cron: '0 0 * * 1'
  workflow_dispatch: 
 
+permission:
+   contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,3 +37,12 @@ jobs:
             to: gentlebazzr@gmail.com
             from: "GitHub Scraper Automation"
             body: file://output.txt
+
+        - name: Commit and Push Data Files
+          run: |
+             git config --global user.name "GitHub Actions Automation"
+             git config --global user.email "actions@github.com"
+             git add news_data.json
+             git commit -m "Automated Economic Data Feed Update [skip ci]" ||
+             echo "No changes  to commit"
+                     git push
