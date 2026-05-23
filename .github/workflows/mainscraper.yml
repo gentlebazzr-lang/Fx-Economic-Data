@@ -17,5 +17,20 @@ jobs:
            python-version: '3.9'
        - name: Install dependencies
          run: pip install requests
-       - name: Run script
-         run:  python -u main.py
+       - name: Run script and Save Output
+         run:  python -u main.py > output.txt
+
+       - name: View Log Output
+         run: cat output.txt
+
+       - name: Send Email Notification
+         uses: dawidd6/action-send-mail@v3
+         with:
+            server_address: smtp.gmail.com
+            server_port: 465
+            username: derinneganuser@gmail.com
+            password: $(( secrets.MAIL_PASSWORD))
+            subject: "Forex Factory's Filtered Data Updated"
+            to: gentlebazzr@gmail.com
+            from: "GitHub Scraper Automation"
+            body: file://output.txt
