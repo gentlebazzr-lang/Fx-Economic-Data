@@ -28,14 +28,14 @@ def fetch_economic_data():
         if country in target_currencies and impact in target_impacts:
             title = event.find('title').text.strip()
             date_str = event.find('date').text
-            time_str = event.find.find('time').text
+            time_str = event.find('time').text
 
             filtered_events.append({
                 'currency': country,
                 'impact': impact, 
                 'title': title,
                 'date': date_str,
-                'time': date_str
+                'time': time_str
             })
 
     print("--- Forex FActory Filtered Data---")
@@ -46,5 +46,5 @@ def fetch_economic_data():
             print(f"[{item['date']} {item['item']}] {item['currency']} ({item['impact']}): {item['title']}")
 
 if __name__ == "__main__":
-    fetch_economic_data
+    fetch_economic_data ()
     
