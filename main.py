@@ -1,7 +1,7 @@
 import requests
 import xml.etree.ElementTree as ET
 import json
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import time
 
 def fetch_economic_data():
@@ -43,7 +43,7 @@ def fetch_economic_data():
 
     print("--- Forex Factory Filtered Data---")
 
-    today = datetime.utcnow()
+    today = datetime.now(timezone.utc)
     days_to_monday = 1 if today.weekday() == 6 else - today.weekday()
     monday_dt = (today + timedelta(days=days_to_monday)).replace(hour=0, minute=0, second=0, microsecond=0)
 
