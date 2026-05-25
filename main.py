@@ -49,7 +49,7 @@ def fetch_economic_data():
 
     week_timestamp = {}
     for i in range(5):
-        day_dt =  monday_dt * timedelta(days=i)
+        day_dt =  monday_dt + timedelta(days=i)
         week_timestamp[i] = int(day_dt.timestamp()) * 1000
 
     # categorize the weeks events
