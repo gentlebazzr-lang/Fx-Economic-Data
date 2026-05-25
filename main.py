@@ -121,6 +121,7 @@ def fetch_economic_data():
         daily_schedule = {0: 'high', 1: 'med', 4: 'high'}
     else:
         # Ethical failsafe
+        print ("Neutral week")
         daily_schedule = {0: 'neutral', 1: 'neutral', 2: 'neutral', 3: 'neutral', 4: 'neutral'}
 
         # Construct the payload array
