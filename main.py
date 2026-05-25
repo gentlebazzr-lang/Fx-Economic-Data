@@ -59,8 +59,19 @@ def fetch_economic_data():
 
     for item in filtered_events:
         try:
-            # Determines which day of the week this event lands
-            dt = datetime.strptime(item['date'], "%m-%d-%Y")
+            date_raw = item['date'].strip()
+            if "-" in date_raw:
+                parts = date_raw.split("-")
+                if len (parts) == 3:
+                    month_part = parts[0].zfill(2)
+                    day_part = parts[1].zfill(2)
+                    year_part = parts[2]
+                    clean_date = f"{month_part}-{day_part}-{year_part}"
+                    dt = datetime.strptime(clean_date, "%m-%d-%Y")
+                else:
+                    continue
+            else:
+                continue
             weekday = dt.weekday()
 
             if weekday > 4:
@@ -123,7 +134,7 @@ def fetch_economic_data():
 
         # Construct the payload array
         payload = {
-            "last_updated": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC"),
+            "last_updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
             "blue_peak_zones": [],
             "green_high_zones": [],
             "orange_medium_zones": [],
