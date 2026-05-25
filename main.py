@@ -58,22 +58,12 @@ def fetch_economic_data():
     holidays_days = set()
 
 
+
     for item in filtered_events:
         try:
-            date_raw = item['date'].strip()
-            if "-" in date_raw:
-                parts = date_raw.split("-")
-                if len (parts) == 3:
-                    month_part = parts[0].zfill(2)
-                    day_part = parts[1].zfill(2)
-                    year_part = parts[2]
-                    clean_date = f"{month_part}-{day_part}-{year_part}"
-                    dt = datetime.strptime(clean_date, "%m-%d-%Y")
-                else:
-                    continue
-            else:
-                continue
+            dt = datetime.strptime(item ['date'], "%m-%d-%Y")
             weekday = dt.weekday()
+
 
             if weekday > 4:
                 continue  # ignores weekend data
@@ -160,12 +150,6 @@ def fetch_economic_data():
 
 
  
-  
-                               
-
-
-            
-                                                                                       
 
 if __name__ == "__main__":
     fetch_economic_data ()
