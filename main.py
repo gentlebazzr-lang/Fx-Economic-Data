@@ -25,6 +25,7 @@ def fetch_economic_data():
     filtered_events = []
     
     for event in root.findall('event'):
+        
         country = event.find('country').text if event.find('country') is not None else ''
         impact = event.find('impact').text if event.find('impact') is not None else ''
 
