@@ -1,1 +1,2 @@
 --- Forex Factory Filtered Data---
+Successfully routed matrix and generated news_data.json!
