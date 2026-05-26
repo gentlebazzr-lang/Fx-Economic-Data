@@ -124,30 +124,30 @@ def fetch_economic_data():
         print ("Neutral week")
         daily_schedule = {0: 'neutral', 1: 'neutral', 2: 'neutral', 3: 'neutral', 4: 'neutral'}
 
-        # Construct the payload array
-        payload = {
-            "last_updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
-            "blue_peak_zones": [],
-            "green_high_zones": [],
-            "orange_medium_zones": [],
-            "red_low_zones": [],
-            "grey_neutral_zones": []
-        }
+    # Construct the payload array
+    payload = {
+        "last_updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "blue_peak_zones": [],
+        "green_high_zones": [],
+        "orange_medium_zones": [],
+        "red_low_zones": [],
+        "grey_neutral_zones": []
+    }
 
-        # Map the categorized days to their actual UNIX timestamps
-        for day_idx, category in daily_schedule.items():
-            ts = week_timestamp[day_idx]
-            if category == 'peak': payload["blue_peak_zones"].append(ts)
-            elif category == 'high': payload["green_high_zones"].append(ts)
-            elif category == 'med': payload["orange_medium_zones"].append(ts)
-            elif category == 'low': payload["red_low_zones"].append(ts)
-            elif category == 'neutral': payload["grey_neutral_zones"].append(ts)
+    # Map the categorized days to their actual UNIX timestamps
+    for day_idx, category in daily_schedule.items():
+        ts = week_timestamp[day_idx]
+        if category == 'peak': payload["blue_peak_zones"].append(ts)
+        elif category == 'high': payload["green_high_zones"].append(ts)
+        elif category == 'med': payload["orange_medium_zones"].append(ts)
+        elif category == 'low': payload["red_low_zones"].append(ts)
+        elif category == 'neutral': payload["grey_neutral_zones"].append(ts)
 
-        # Save the data payload to repository workspace
-        with open("news_data.json", "w") as json_file:
-            json.dump(payload, json_file, indent=4)
+    # Save the data payload to repository workspace
+    with open("news_data.json", "w") as json_file:
+        json.dump(payload, json_file, indent=4)
 
-        print("Successfully routed matrix and generated news_data.json!")
+    print("Successfully routed matrix and generated news_data.json!")
 
 
  
