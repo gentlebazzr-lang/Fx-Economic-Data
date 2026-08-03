@@ -1,15 +1,14 @@
 {
-    "last_updated": "2026-08-02 02:25:59 UTC",
+    "last_updated": "2026-08-03 02:18:22 UTC",
     "blue_peak_zones": [],
-    "green_high_zones": [
+    "green_high_zones": [],
+    "orange_medium_zones": [],
+    "red_low_zones": [],
+    "grey_neutral_zones": [
         1785715200000,
-        1785974400000
-    ],
-    "orange_medium_zones": [
-        1785888000000
-    ],
-    "red_low_zones": [
+        1785801600000,
+        1785888000000,
+        1785974400000,
         1786060800000
-    ],
-    "grey_neutral_zones": []
+    ]
 }
