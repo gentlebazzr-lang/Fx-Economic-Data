@@ -1,2 +1,3 @@
 --- Forex Factory Filtered Data---
+Neutral week
 Successfully routed matrix and generated news_data.json!
